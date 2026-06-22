@@ -80,6 +80,10 @@ migrations/
 
 ## Roadmap
 
+Track work in GitHub Issues **C1–C4**. See [docs/TICKETS.md](docs/TICKETS.md) and [.github/ISSUES.md](.github/ISSUES.md).
+
+**You commit each ticket** (one issue = one commit with `Closes #N`).
+
 ### Phase B — Confirm on workers.dev
 - Smoke-test compose → publish → read flow on the deployed URL
 - Verify D1 remote migrations and data persistence
