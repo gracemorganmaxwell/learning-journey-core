@@ -1,6 +1,6 @@
 # Learning Journey Core
 
-Minimal blog CMS on **RedwoodSDK + Cloudflare Workers + D1**. Phase A ships two routes with no auth and no Win98 desktop chrome.
+ Blog CMS on **RedwoodSDK + Cloudflare Workers + D1**. Phase A ships two routes with no auth and styling yet.
 
 ## Routes
 
@@ -20,6 +20,16 @@ pnpm dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173).
+
+## Live site
+
+**Production:** https://learning-journey-core.gracemorganmaxwell.workers.dev
+
+| Route | URL |
+|-------|-----|
+| Landing | https://learning-journey-core.gracemorganmaxwell.workers.dev/ |
+| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/blogcompose |
+| Desktop | https://learning-journey-core.gracemorganmaxwell.workers.dev/desktop |
 
 ### Useful commands
 
@@ -79,10 +89,6 @@ migrations/
 ```
 
 ## Roadmap
-
-Track work in GitHub Issues **C1–C4**. See [docs/TICKETS.md](docs/TICKETS.md) and [.github/ISSUES.md](.github/ISSUES.md).
-
-**You commit each ticket** (one issue = one commit with `Closes #N`).
 
 ### Phase B — Confirm on workers.dev
 - Smoke-test compose → publish → read flow on the deployed URL

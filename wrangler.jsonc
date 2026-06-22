@@ -14,7 +14,7 @@
     {
       "binding": "DB",
       "database_name": "learning-journey-db",
-      "database_id": "00000000-0000-0000-0000-000000000001",
+      "database_id": "260af2be-ef3b-472b-92ca-06112ec2af32",
       "migrations_dir": "migrations"
     }
   ],
