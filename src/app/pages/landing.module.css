@@ -1,0 +1,27 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+.page h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.page p {
+  margin: 0 0 1.5rem;
+  color: #555;
+}
+
+.links {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.links a {
+  color: #0b57d0;
+}
