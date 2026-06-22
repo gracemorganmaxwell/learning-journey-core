@@ -57,7 +57,7 @@ Replace `BASE` with your URL:
 | URL | Check |
 |-----|--------|
 | `BASE/` | Landing links work |
-| `BASE/blogcompose` | Form loads; create post with **Publish immediately** |
+| `BASE/composeblog` | List posts; create, edit, delete |
 | `BASE/desktop` | Post appears |
 | `BASE/desktop/your-slug` | Reader works |
 

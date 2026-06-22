@@ -26,14 +26,9 @@ export async function DesktopPostPage({ params }: DesktopPostPageProps) {
 
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <nav className={styles.nav}>
-          <a href="/desktop">← All posts</a>
-          {" · "}
-          <a href="/blogcompose">Compose</a>
-        </nav>
-      </header>
-
+      <nav className={styles.nav}>
+        <a href="/desktop">← All posts</a>
+      </nav>
       <article className={styles.article}>
         <h1>{post.title}</h1>
         <p className={styles.meta}>{formatDate(post.created_at)}</p>

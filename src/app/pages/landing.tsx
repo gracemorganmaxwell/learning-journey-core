@@ -7,10 +7,10 @@ export function LandingPage() {
       <p>Phase A: minimal blog CMS on Cloudflare Workers.</p>
       <ul className={styles.links}>
         <li>
-          <a href="/desktop">Desktop — read published posts</a>
+          <a href="/desktop">Desktop — read published posts (public)</a>
         </li>
         <li>
-          <a href="/blogcompose">Blog Compose — author posts</a>
+          <a href="/composeblog">Compose blog — author posts (open until C3 auth)</a>
         </li>
       </ul>
     </main>

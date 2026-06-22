@@ -7,17 +7,23 @@
 | Route | Purpose |
 |-------|---------|
 | `/` | Landing page with links to both apps |
-| `/blogcompose` | CMS form — title, slug, excerpt, markdown body, publish checkbox |
-| `/desktop` | Lists published posts |
-| `/desktop/:slug` | Reader view for a single published post |
+| `/composeblog` | Author hub — list, create, edit, delete posts |
+| `/composeblog/new` | Create a new post |
+| `/composeblog/edit/:id` | Edit or delete a post |
+| `/desktop` | **Read-only** — lists published posts |
+| `/desktop/:slug` | **Read-only** — single post reader |
+
+`/blogcompose` redirects to `/composeblog` (legacy URL).
 
 ## Local development
 
 ```bash
 pnpm install
-pnpm db:migrate:local
+pnpm db:migrate:local   # required first time (creates BlogPost table locally)
 pnpm dev
 ```
+
+If you see `no such table: BlogPost`, run `pnpm db:migrate:local` again and restart `pnpm dev`.
 
 Open [http://localhost:5173](http://localhost:5173).
 
@@ -28,7 +34,7 @@ Open [http://localhost:5173](http://localhost:5173).
 | Route | URL |
 |-------|-----|
 | Landing | https://learning-journey-core.gracemorganmaxwell.workers.dev/ |
-| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/blogcompose |
+| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/composeblog |
 | Desktop | https://learning-journey-core.gracemorganmaxwell.workers.dev/desktop |
 
 ### Useful commands
@@ -95,7 +101,7 @@ migrations/
 - Verify D1 remote migrations and data persistence
 
 ### Phase C — Auth
-- Protect `/blogcompose` (Cloudflare Access or app-level auth)
+- Protect `/composeblog` (Cloudflare Access or app-level auth)
 - Optional author identity on posts
 
 ### Phase D — Styling + Win98 desktop

@@ -10,18 +10,10 @@ export async function DesktopPage() {
       <header className={styles.header}>
         <h1>Learning Journey</h1>
         <p>Published posts from your learning journey.</p>
-        <nav className={styles.nav}>
-          <a href="/blogcompose">Compose a post</a>
-          {" · "}
-          <a href="/">Home</a>
-        </nav>
       </header>
 
       {posts.length === 0 ? (
-        <p className={styles.empty}>
-          No published posts yet.{" "}
-          <a href="/blogcompose">Write your first post</a>.
-        </p>
+        <p className={styles.empty}>No published posts yet.</p>
       ) : (
         <ul className={styles.list}>
           {posts.map((post) => (

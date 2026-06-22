@@ -47,6 +47,28 @@ export async function listPublishedPosts(): Promise<BlogPostRow[]> {
   return result.results ?? [];
 }
 
+export async function listAllPosts(): Promise<BlogPostRow[]> {
+  const result = await env.DB.prepare(
+    `SELECT id, slug, title, excerpt, body_md, published, created_at, updated_at
+     FROM BlogPost
+     ORDER BY updated_at DESC`,
+  ).all<BlogPostRow>();
+
+  return result.results ?? [];
+}
+
+export async function getPostById(id: number): Promise<BlogPostRow | null> {
+  const result = await env.DB.prepare(
+    `SELECT id, slug, title, excerpt, body_md, published, created_at, updated_at
+     FROM BlogPost
+     WHERE id = ?`,
+  )
+    .bind(id)
+    .first<BlogPostRow>();
+
+  return result ?? null;
+}
+
 export async function getPostBySlug(
   slug: string,
   options?: { publishedOnly?: boolean },
@@ -62,4 +84,33 @@ export async function getPostBySlug(
 
   const result = await env.DB.prepare(query).bind(slug).first<BlogPostRow>();
   return result ?? null;
+}
+
+export async function updatePost(
+  id: number,
+  input: InsertPostInput,
+): Promise<BlogPostRow> {
+  const published = input.published ? 1 : 0;
+  const result = await env.DB.prepare(
+    `UPDATE BlogPost
+     SET slug = ?, title = ?, excerpt = ?, body_md = ?, published = ?, updated_at = datetime('now')
+     WHERE id = ?
+     RETURNING *`,
+  )
+    .bind(input.slug, input.title, input.excerpt, input.bodyMd, published, id)
+    .first<BlogPostRow>();
+
+  if (!result) {
+    throw new Error("Post not found");
+  }
+
+  return result;
+}
+
+export async function deletePost(id: number): Promise<boolean> {
+  const result = await env.DB.prepare(`DELETE FROM BlogPost WHERE id = ?`)
+    .bind(id)
+    .run();
+
+  return (result.meta.changes ?? 0) > 0;
 }

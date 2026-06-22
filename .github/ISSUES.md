@@ -4,7 +4,7 @@
 |--------|--------|
 | C1 | Verify Phase A locally |
 | C2 | Deploy live on workers.dev |
-| C3 | Cloudflare Access auth on `/blogcompose` |
+| C3 | Cloudflare Access auth on `/composeblog` |
 | C4 | Win98 desktop chrome |
 
 **Create issues:** `./scripts/create-github-issues.sh`
