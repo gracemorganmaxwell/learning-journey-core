@@ -1,16 +1,10 @@
 import { BlogComposeForm } from "@/app/components/BlogComposeForm";
-import styles from "./composeblog.module.css";
+import { ComposeBlogLayout } from "@/app/components/ComposeBlogLayout";
 
 export function ComposeBlogNewPage() {
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <h1>New post</h1>
-        <nav className={styles.nav}>
-          <a href="/composeblog">← All posts</a>
-        </nav>
-      </header>
+    <ComposeBlogLayout title="New post" backToList>
       <BlogComposeForm mode="create" />
-    </main>
+    </ComposeBlogLayout>
   );
 }

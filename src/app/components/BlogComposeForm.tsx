@@ -61,7 +61,7 @@ export function BlogComposeForm({
         setMessage(
           published
             ? `Updated and published at /desktop/${result.slug}`
-            : `Saved draft. Publish to show on /desktop.`,
+            : "Saved as draft. Check Published to show on the desktop.",
         );
         return;
       }
@@ -69,7 +69,7 @@ export function BlogComposeForm({
       setMessage(
         published
           ? `Published at /desktop/${result.slug}`
-          : `Saved draft. Publish from edit or create again with Publish checked.`,
+          : "Saved as draft. Edit the post and check Published when ready.",
       );
       setTitle("");
       setSlug("");
@@ -133,6 +133,7 @@ export function BlogComposeForm({
           placeholder="my-first-post"
           required
         />
+        <p className={styles.hint}>URL path on the desktop: /desktop/your-slug</p>
       </label>
 
       <label className={styles.field}>
@@ -142,10 +143,11 @@ export function BlogComposeForm({
           value={excerpt}
           onChange={(event) => setExcerpt(event.target.value)}
           rows={3}
+          placeholder="Short summary shown in the blog window"
         />
       </label>
 
-      <label className={styles.field}>
+      <label className={`${styles.field} ${styles.bodyField}`}>
         <span>Body (Markdown)</span>
         <textarea
           name="bodyMd"
@@ -162,14 +164,19 @@ export function BlogComposeForm({
           checked={published}
           onChange={(event) => setPublished(event.target.checked)}
         />
-        <span>Published (visible on /desktop)</span>
+        <span>
+          Published
+          <span className={styles.checkboxHint}>
+            Visible on the public desktop at /desktop
+          </span>
+        </span>
       </label>
 
-      {error ? <p className={styles.error}>{error}</p> : null}
-      {message ? <p className={styles.success}>{message}</p> : null}
+      {error ? <p className={styles.alertError}>{error}</p> : null}
+      {message ? <p className={styles.alertSuccess}>{message}</p> : null}
 
       <div className={styles.actions}>
-        <button type="submit" disabled={loading || deleting}>
+        <button type="submit" className={styles.btn} disabled={loading || deleting}>
           {loading
             ? "Saving…"
             : mode === "edit"
@@ -180,7 +187,7 @@ export function BlogComposeForm({
         {mode === "edit" ? (
           <button
             type="button"
-            className={styles.danger}
+            className={styles.btnDanger}
             disabled={loading || deleting}
             onClick={onDelete}
           >
