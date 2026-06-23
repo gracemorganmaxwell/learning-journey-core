@@ -97,7 +97,6 @@ export function Taskbar({
       </div>
 
       <div className={styles.tray}>
-        <img src="/favicon.ico" alt="" className={styles.trayIcon} width={16} height={16} />
         {now === null ? (
           <span className={styles.clock}>{timeLabel}</span>
         ) : (

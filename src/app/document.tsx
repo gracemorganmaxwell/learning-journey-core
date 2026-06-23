@@ -9,7 +9,9 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Learning Journey</title>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+      <link rel="icon" href="/logo.png" type="image/png" sizes="192x192" />
+      <link rel="apple-touch-icon" href="/logo.png" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         rel="preconnect"

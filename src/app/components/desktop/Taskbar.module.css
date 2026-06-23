@@ -122,12 +122,6 @@
   color: var(--lj-dark);
 }
 
-.trayIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
 .clock {
   font-variant-numeric: tabular-nums;
 }
