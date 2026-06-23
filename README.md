@@ -1,6 +1,6 @@
 # Learning Journey Core
 
- Blog CMS on **RedwoodSDK + Cloudflare Workers + D1**. Phase A ships two routes with no auth and styling yet.
+ Blog CMS on **RedwoodSDK + Cloudflare Workers + D1**. Public readers use a Win98-style `/desktop`; authors use `/composeblog`.
 
 ## Routes
 
@@ -9,8 +9,8 @@
 | `/` | Landing page with links to both apps |
 | `/composeblog` | CMS — list posts, create, edit (Cloudflare Access in prod) |
 | `/blogcompose` | Legacy redirect → `/composeblog` |
-| `/desktop` | Lists published posts |
-| `/desktop/:slug` | Reader view for a single published post |
+| `/desktop` | Win98 desktop — blog reader (public) |
+| `/desktop/:slug` | Opens desktop with Blog window on that post |
 
 ## Local development
 
@@ -99,6 +99,8 @@ migrations/
 - `/composeblog` protected by Cloudflare Access + Worker middleware (see [docs/ADMIN.md](docs/ADMIN.md))
 - Local dev: `/composeblog` open by default; optional `COMPOSE_DEV_BYPASS=false` in `.dev.vars` to test 403
 
-### Phase D — Styling + Win98 desktop
-- Port reflection-portfolio / `learning-journey-os` desktop chrome
-- `OsWindow`, taskbar, retro UI over the same D1-backed posts
+### Phase D — Win98 desktop (C4a–C4c done; C5 next)
+- Win98 shell on `/desktop` — taskbar, Start menu, blog window, shutdown dialog
+- Design spec: [docs/DESIGN.md](docs/DESIGN.md) · Pencil: [designs/learning-journey-core.pen](designs/learning-journey-core.pen)
+- See [docs/TICKETS.md](docs/TICKETS.md) and [docs/C4-COMMITS.md](docs/C4-COMMITS.md)
+- Weather window planned in C5d (C4d floating widget superseded)
