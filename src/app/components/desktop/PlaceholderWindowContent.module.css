@@ -1,0 +1,15 @@
+.placeholder {
+  padding: 16px;
+  font-family: var(--win-font-content);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--lj-dark);
+}
+
+.placeholder h2 {
+  margin: 0 0 8px;
+  font-family: var(--win-font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lj-deep-purple);
+}

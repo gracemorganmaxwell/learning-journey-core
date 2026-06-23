@@ -1,43 +1,45 @@
-import { getPostBySlug } from "@/db";
+import { getPostBySlug, listPublishedPosts } from "@/db";
+import { DesktopExperience } from "@/app/components/desktop/DesktopExperience";
 import { formatDate, renderMarkdownToHtml } from "@/app/lib/markdown";
-import styles from "./desktop.module.css";
+import type { DesktopPostView } from "@/app/lib/desktop-posts";
 
 type DesktopPostPageProps = {
   params: { slug: string };
 };
+
+async function loadDesktopPosts(): Promise<DesktopPostView[]> {
+  const rows = await listPublishedPosts();
+  return rows.map((row) => ({
+    slug: row.slug,
+    title: row.title,
+    excerpt: row.excerpt,
+    dateLabel: formatDate(row.created_at),
+    html: renderMarkdownToHtml(row.body_md),
+  }));
+}
 
 export async function DesktopPostPage({ params }: DesktopPostPageProps) {
   const post = await getPostBySlug(params.slug, { publishedOnly: true });
 
   if (!post) {
     return (
-      <main className={styles.page}>
-        <header className={styles.header}>
-          <h1>Post not found</h1>
-          <nav className={styles.nav}>
-            <a href="/desktop">Back to posts</a>
-          </nav>
-        </header>
+      <main style={{ padding: "2rem", fontFamily: "Tahoma, sans-serif" }}>
+        <h1>Post not found</h1>
+        <p>
+          <a href="/desktop">Back to desktop</a>
+        </p>
       </main>
     );
   }
 
-  const html = renderMarkdownToHtml(post.body_md);
+  const posts = await loadDesktopPosts();
 
   return (
-    <main className={styles.page}>
-      <nav className={styles.nav}>
-        <a href="/desktop">← All posts</a>
-      </nav>
-      <article className={styles.article}>
-        <h1>{post.title}</h1>
-        <p className={styles.meta}>{formatDate(post.created_at)}</p>
-        {post.excerpt ? <p className={styles.excerpt}>{post.excerpt}</p> : null}
-        <div
-          className={styles.prose}
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </article>
-    </main>
+    <DesktopExperience
+      posts={posts}
+      initialWindow="blog"
+      initialBlogSlug={params.slug}
+      enableShutdown={false}
+    />
   );
 }
