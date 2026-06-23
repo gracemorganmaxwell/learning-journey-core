@@ -38,13 +38,6 @@ function renderWindowContent(
           body="Learning Journey — a reflection portfolio and blog on Cloudflare Workers."
         />
       );
-    case "learning-log":
-      return (
-        <PlaceholderWindowContent
-          title="Learning Log"
-          body="Learning log entries will appear here in a future update."
-        />
-      );
   }
 }
 

@@ -622,7 +622,6 @@ const shortcuts = [
   ["Blog", I.chrome],
   ["Resume", I.briefcase],
   ["Contact", I.mail],
-  ["Learning Log", I.calendar],
   ["Credits.txt", I.textFile],
 ];
 
@@ -1676,7 +1675,6 @@ const document = {
     blogApp,
     resumeApp,
     contactApp,
-    learningLogApp,
     creditsApp,
     adminDash,
     adminPosts,

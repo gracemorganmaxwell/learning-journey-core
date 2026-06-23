@@ -9,7 +9,6 @@ import { Taskbar, TASKBAR_H } from "./Taskbar";
 const emptyOpenStates = {
   blog: { open: false, minimized: false },
   about: { open: false, minimized: false },
-  "learning-log": { open: false, minimized: false },
 } as const;
 
 /** C4a — Win98 desktop shell only (icons, taskbar, Start menu). No windows yet. */
