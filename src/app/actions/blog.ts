@@ -13,6 +13,7 @@ import {
   toPostPayload,
   validatePostInput,
 } from "@/app/lib/blog-validation";
+import { requireComposeAccessAction } from "@/app/middleware/requireComposeAccess";
 
 export type PostActionResult =
   | { ok: true; slug: string }
@@ -30,7 +31,8 @@ function slugConflictMessage(error: unknown): string | null {
   return null;
 }
 
-export const submitPost = serverAction(
+export const submitPost = serverAction([
+  requireComposeAccessAction,
   async (input: PostFormInput): Promise<PostActionResult> => {
     const validationError = validatePostInput(input);
     if (validationError) {
@@ -50,9 +52,10 @@ export const submitPost = serverAction(
       throw error;
     }
   },
-);
+]);
 
-export const updatePostAction = serverAction(
+export const updatePostAction = serverAction([
+  requireComposeAccessAction,
   async (
     postId: number,
     input: PostFormInput,
@@ -83,9 +86,10 @@ export const updatePostAction = serverAction(
       throw error;
     }
   },
-);
+]);
 
-export const deletePostAction = serverAction(
+export const deletePostAction = serverAction([
+  requireComposeAccessAction,
   async (postId: number): Promise<DeletePostResult> => {
     if (!Number.isInteger(postId) || postId < 1) {
       return { ok: false, error: "Invalid post id." };
@@ -98,4 +102,4 @@ export const deletePostAction = serverAction(
 
     return { ok: true };
   },
-);
+]);

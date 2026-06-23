@@ -33,14 +33,6 @@ Confirm `/blogcompose` → D1 → `/desktop` works on `pnpm dev` before deployin
 
 All checkboxes above pass. No code changes required unless bugs found.
 
-###  Commit (optional — only if you add docs from this ticket)
-
-```
-docs: add issue tracker and local QA checklist
-
-Closes #1
-```
-
 ---
 
 ## C2 — Deploy live on workers.dev
@@ -53,12 +45,12 @@ First production deploy: remote D1, migrations, `pnpm release`. App reachable on
 
 ### Scope
 
-- [ ] `pnpm wrangler login`
-- [ ] `pnpm wrangler d1 create learning-journey-db` (if not already created)
-- [ ] Paste real `database_id` into `wrangler.jsonc`
-- [ ] `pnpm db:migrate:remote`
-- [ ] `pnpm release`
-- [ ] README — add live URL
+- [/] `pnpm wrangler login`
+- [/] `pnpm wrangler d1 create learning-journey-db` (if not already created)
+- [/] Paste real `database_id` into `wrangler.jsonc`
+- [/] `pnpm db:migrate:remote`
+- [/] `pnpm release`
+- [/] README — add live URL
 
 ### Acceptance
 
@@ -76,20 +68,20 @@ Closes #2
 
 ---
 
-## C3 — Cloudflare Access auth on /composeblog
+## C3 — Cloudflare Access auth on /blogcompose
 
 **Labels:** `feature`, `infra`, `docs`
 
 ### Summary
 
-Protect `/composeblog` (and `/composeblog/*`) so only you can author posts. Public `/desktop` stays open.
+Protect `/blogcompose` so only you can author posts. Public `/desktop` stays open.
 
 ### Scope
 
-- [ ] `docs/ADMIN.md` — Zero Trust Access app for `/composeblog` on workers.dev hostname
+- [ ] `docs/ADMIN.md` — Zero Trust Access app for `/blogcompose` on workers.dev hostname
 - [ ] `.dev.vars.example` — `COMPOSE_DEV_BYPASS=true` for local only
 - [ ] `src/app/middleware/requireComposeAccess.ts` — prod: require `Cf-Access-Authenticated-User-Email`; local: bypass flag
-- [ ] Wire middleware in `src/worker.tsx` for `/composeblog` and `/composeblog/*` only
+- [ ] Wire middleware in `src/worker.tsx` for `/blogcompose` only
 - [ ] **Manual:** Access policy — allow your email/GitHub identity
 
 ### Acceptance
@@ -103,7 +95,7 @@ Protect `/composeblog` (and `/composeblog/*`) so only you can author posts. Publ
 ### Your commit
 
 ```
-feat(auth): protect composeblog with Cloudflare Access
+feat(auth): protect blogcompose with Cloudflare Access
 
 Closes #3
 ```

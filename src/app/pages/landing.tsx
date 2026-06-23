@@ -10,7 +10,7 @@ export function LandingPage() {
           <a href="/desktop">Desktop — read published posts (public)</a>
         </li>
         <li>
-          <a href="/composeblog">Compose blog — author posts (open until C3 auth)</a>
+          <a href="/composeblog">Compose blog — author only (Cloudflare Access in prod)</a>
         </li>
       </ul>
     </main>

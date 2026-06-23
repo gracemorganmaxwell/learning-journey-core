@@ -1,0 +1,4 @@
+COMPOSE_DEV_BYPASS=true
+
+# Optional: restrict to one email (must match Cf-Access-Authenticated-User-Email in prod)
+# COMPOSE_ALLOWED_EMAIL=you@example.com

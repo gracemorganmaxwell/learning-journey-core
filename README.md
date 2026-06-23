@@ -7,25 +7,21 @@
 | Route | Purpose |
 |-------|---------|
 | `/` | Landing page with links to both apps |
-| `/composeblog` | Author hub — list, create, edit, delete posts |
-| `/composeblog/new` | Create a new post |
-| `/composeblog/edit/:id` | Edit or delete a post |
-| `/desktop` | **Read-only** — lists published posts |
-| `/desktop/:slug` | **Read-only** — single post reader |
-
-`/blogcompose` redirects to `/composeblog` (legacy URL).
+| `/blogcompose` | CMS form — title, slug, excerpt, markdown body, publish checkbox |
+| `/desktop` | Lists published posts |
+| `/desktop/:slug` | Reader view for a single published post |
 
 ## Local development
 
 ```bash
 pnpm install
-pnpm db:migrate:local   # required first time (creates BlogPost table locally)
+pnpm db:migrate:local
 pnpm dev
 ```
 
-If you see `no such table: BlogPost`, run `pnpm db:migrate:local` again and restart `pnpm dev`.
-
 Open [http://localhost:5173](http://localhost:5173).
+
+**Local `/composeblog`:** allowed automatically during `pnpm dev` (Cloudflare Access does not run on localhost). To test 403 locally, add `COMPOSE_DEV_BYPASS=false` to `.dev.vars` and restart dev.
 
 ## Live site
 
@@ -34,7 +30,7 @@ Open [http://localhost:5173](http://localhost:5173).
 | Route | URL |
 |-------|-----|
 | Landing | https://learning-journey-core.gracemorganmaxwell.workers.dev/ |
-| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/composeblog |
+| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/blogcompose |
 | Desktop | https://learning-journey-core.gracemorganmaxwell.workers.dev/desktop |
 
 ### Useful commands
@@ -70,8 +66,6 @@ pnpm release        # build + deploy to Cloudflare Workers
    pnpm release
    ```
 
-Your app will be available at `https://learning-journey-core.<account>.workers.dev` (exact subdomain depends on your Cloudflare account).
-
 ## Stack
 
 - [RedwoodSDK](https://docs.rwsdk.com) 1.2 — React Server Components, `route()` routing, `serverAction`
@@ -101,8 +95,8 @@ migrations/
 - Verify D1 remote migrations and data persistence
 
 ### Phase C — Auth
-- Protect `/composeblog` (Cloudflare Access or app-level auth)
-- Optional author identity on posts
+- `/composeblog` protected by Cloudflare Access + Worker middleware (see [docs/ADMIN.md](docs/ADMIN.md))
+- Local dev: `/composeblog` open by default; optional `COMPOSE_DEV_BYPASS=false` in `.dev.vars` to test 403
 
 ### Phase D — Styling + Win98 desktop
 - Port reflection-portfolio / `learning-journey-os` desktop chrome
