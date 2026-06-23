@@ -238,7 +238,7 @@ Remove the Learning Log shortcut, menu item, and placeholder window from the Win
 ```
 feat(ui): remove learning log from desktop
 
-Closes #5a
+Closes #5
 ```
 
 ---
@@ -268,7 +268,7 @@ Scale the Win98 monitor bezel to **80vw × 80dvh** on tablet/desktop; full-bleed
 ```
 feat(ui): responsive Win98 monitor shell for tablet and phone
 
-Closes #5b
+Closes #7
 ```
 
 ---
@@ -299,7 +299,7 @@ Add **Credits.txt** desktop shortcut opening a Notepad-style window with attribu
 ```
 feat(ui): add Credits.txt Notepad window on desktop
 
-Closes #5c
+Closes #9
 ```
 
 ---
@@ -332,7 +332,7 @@ Replace the removed floating weather widget with a **Weather — Info** OsWindow
 ```
 feat(ui): add Christchurch weather window via OpenWeather
 
-Closes #5d
+Closes #11
 ```
 
 ---
@@ -367,7 +367,7 @@ C5c (Credits as tree node)
 ```
 feat(ui): add virtual filesystem file manager window
 
-Closes #5e
+Closes #6
 ```
 
 ---
@@ -401,7 +401,7 @@ C5e
 ```
 feat(ui): add project cards to file manager pane
 
-Closes #5f
+Closes #8
 ```
 
 ---
