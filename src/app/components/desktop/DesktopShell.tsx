@@ -11,6 +11,7 @@ const emptyOpenStates = {
   about: { open: false, minimized: false },
   credits: { open: false, minimized: false },
   weather: { open: false, minimized: false },
+  files: { open: false, minimized: false },
 } as const;
 
 /** C4a — Win98 desktop shell only (icons, taskbar, Start menu). No windows yet. */

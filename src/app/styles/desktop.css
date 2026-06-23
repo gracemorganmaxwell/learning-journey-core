@@ -6,6 +6,7 @@
 @import "../components/desktop/StartMenu.module.css";
 @import "../components/desktop/OsWindow.module.css";
 @import "../components/desktop/BlogWindowContent.module.css";
+@import "../components/desktop/FileManagerWindowContent.module.css";
 @import "../components/desktop/WeatherWindowContent.module.css";
 @import "../components/desktop/NotepadWindowContent.module.css";
 @import "../components/desktop/PlaceholderWindowContent.module.css";

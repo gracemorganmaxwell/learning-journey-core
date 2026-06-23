@@ -11,6 +11,7 @@ import { BlogWindowContent } from "./BlogWindowContent";
 import { DesktopIcon } from "./DesktopIcon";
 import styles from "./DesktopExperience.module.css";
 import { OsWindow } from "./OsWindow";
+import { FileManagerWindowContent } from "./FileManagerWindowContent";
 import { NotepadWindowContent } from "./NotepadWindowContent";
 import { WeatherWindowContent } from "./WeatherWindowContent";
 import { PlaceholderWindowContent } from "./PlaceholderWindowContent";
@@ -29,6 +30,7 @@ function renderWindowContent(
   id: DesktopWindowId,
   posts: DesktopPostView[],
   weather: WeatherSnapshot | null,
+  onOpenWindow: (windowId: DesktopWindowId) => void,
   initialBlogSlug?: string,
 ) {
   switch (id) {
@@ -47,6 +49,8 @@ function renderWindowContent(
       return <NotepadWindowContent filePath="/credits.txt" />;
     case "weather":
       return <WeatherWindowContent weather={weather} />;
+    case "files":
+      return <FileManagerWindowContent onOpenWindow={onOpenWindow} />;
   }
 }
 
@@ -138,6 +142,7 @@ export function DesktopWindowLayer({
                 id,
                 posts,
                 weather,
+                wm.openWindow,
                 id === "blog" ? initialBlogSlug : undefined,
               )}
             </OsWindow>
