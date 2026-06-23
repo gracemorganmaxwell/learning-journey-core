@@ -7,7 +7,8 @@
 | Route | Purpose |
 |-------|---------|
 | `/` | Landing page with links to both apps |
-| `/blogcompose` | CMS form — title, slug, excerpt, markdown body, publish checkbox |
+| `/composeblog` | CMS — list posts, create, edit (Cloudflare Access in prod) |
+| `/blogcompose` | Legacy redirect → `/composeblog` |
 | `/desktop` | Lists published posts |
 | `/desktop/:slug` | Reader view for a single published post |
 
@@ -30,7 +31,7 @@ Open [http://localhost:5173](http://localhost:5173).
 | Route | URL |
 |-------|-----|
 | Landing | https://learning-journey-core.gracemorganmaxwell.workers.dev/ |
-| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/blogcompose |
+| Compose | https://learning-journey-core.gracemorganmaxwell.workers.dev/composeblog |
 | Desktop | https://learning-journey-core.gracemorganmaxwell.workers.dev/desktop |
 
 ### Useful commands

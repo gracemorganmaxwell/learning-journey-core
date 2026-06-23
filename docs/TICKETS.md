@@ -68,34 +68,34 @@ Closes #2
 
 ---
 
-## C3 — Cloudflare Access auth on /blogcompose
+## C3 — Cloudflare Access auth on /composeblog
 
 **Labels:** `feature`, `infra`, `docs`
 
 ### Summary
 
-Protect `/blogcompose` so only you can author posts. Public `/desktop` stays open.
+Protect `/composeblog` so only you can author posts. Public `/desktop` stays open.
 
 ### Scope
 
-- [ ] `docs/ADMIN.md` — Zero Trust Access app for `/blogcompose` on workers.dev hostname
-- [ ] `.dev.vars.example` — `COMPOSE_DEV_BYPASS=true` for local only
-- [ ] `src/app/middleware/requireComposeAccess.ts` — prod: require `Cf-Access-Authenticated-User-Email`; local: bypass flag
-- [ ] Wire middleware in `src/worker.tsx` for `/blogcompose` only
+- [x] `docs/ADMIN.md` — Zero Trust Access app for `/composeblog` on workers.dev hostname
+- [x] `.dev.vars.example` — `COMPOSE_DEV_BYPASS=true` for local only
+- [x] `src/app/middleware/requireComposeAccess.ts` — prod: require `Cf-Access-Authenticated-User-Email`; local: bypass flag
+- [x] Wire middleware in `src/worker.tsx` for `/composeblog` (and legacy `/blogcompose` redirect)
 - [ ] **Manual:** Access policy — allow your email/GitHub identity
 
 ### Acceptance
 
-- [ ] Local with bypass → `/blogcompose` loads
-- [ ] Local without bypass → 403
-- [ ] Prod incognito `/blogcompose` → Cloudflare login
-- [ ] Prod `/desktop` still public (no login)
-- [ ] `pnpm build` passes
+- [x] Local with bypass → `/composeblog` loads
+- [x] Local without bypass → 403
+- [ ] Prod incognito `/composeblog` → Cloudflare login
+- [x] Prod `/desktop` still public (no login)
+- [x] `pnpm build` passes
 
 ### Your commit
 
 ```
-feat(auth): protect blogcompose with Cloudflare Access
+feat(auth): protect composeblog with Cloudflare Access
 
 Closes #3
 ```
