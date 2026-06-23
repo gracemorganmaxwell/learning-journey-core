@@ -39,7 +39,7 @@ export async function DesktopPostPage({ params }: DesktopPostPageProps) {
       posts={posts}
       initialWindow="blog"
       initialBlogSlug={params.slug}
-      enableShutdown={false}
+      enableShutdown={true}
     />
   );
 }

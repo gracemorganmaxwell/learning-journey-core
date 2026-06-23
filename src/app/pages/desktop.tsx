@@ -19,5 +19,5 @@ async function loadDesktopPosts(): Promise<DesktopPostView[]> {
 export async function DesktopPage() {
   const posts = await loadDesktopPosts();
 
-  return <DesktopExperience posts={posts} enableShutdown={false} />;
+  return <DesktopExperience posts={posts} enableShutdown={true} />;
 }
