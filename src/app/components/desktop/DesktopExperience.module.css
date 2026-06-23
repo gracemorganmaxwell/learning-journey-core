@@ -12,8 +12,9 @@
 .monitor {
   display: flex;
   flex-direction: column;
-  width: min(1280px, 100%);
-  height: min(800px, calc(100dvh - 32px));
+  width: 80vw;
+  height: 80dvh;
+  max-width: 1280px;
   border-radius: 12px;
   overflow: hidden;
   background: var(--lj-zinc-800);
@@ -51,20 +52,28 @@
   align-content: start;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .desktop {
-    padding: 8px;
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
   }
 
   .monitor {
-    width: 100%;
-    height: calc(100dvh - 16px);
-    border-radius: 8px;
+    width: 100dvw;
+    height: 100dvh;
+    max-width: none;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
   }
 
   .iconGrid {
     top: 12px;
     left: 12px;
+    grid-template-columns: 72px;
     column-gap: 8px;
+    row-gap: 12px;
   }
 }

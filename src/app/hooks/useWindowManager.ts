@@ -34,9 +34,16 @@ export function useWindowManager() {
 
   const openWindow = useCallback(
     (id: DesktopWindowId) => {
+      const narrow =
+        typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
       setFrames((prev) => ({
         ...prev,
-        [id]: { ...prev[id], open: true, minimized: false },
+        [id]: {
+          ...prev[id],
+          open: true,
+          minimized: false,
+          ...(narrow ? { maximized: true } : {}),
+        },
       }));
       focus(id);
     },
