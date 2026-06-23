@@ -1,0 +1,82 @@
+.button {
+  border: 1px solid var(--win-bevel-dark);
+  box-shadow: var(--win-shadow-raised);
+  background: var(--win-gray);
+  color: var(--win-text);
+  font-family: var(--win-font-body);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 16px;
+  cursor: default;
+  min-width: 75px;
+}
+
+.button:active {
+  box-shadow: var(--win-shadow-sunken);
+  background: var(--win-button-active);
+}
+
+.button:focus-visible {
+  outline: 1px dotted var(--win-text);
+  outline-offset: -4px;
+}
+
+.buttonPrimary {
+  composes: button;
+  background: var(--lj-purple);
+  color: #fff;
+}
+
+.buttonPrimary:active {
+  background: var(--lj-deep-purple);
+}
+
+.sunkenField {
+  border: 1px solid var(--win-bevel-dark);
+  box-shadow: var(--win-shadow-sunken);
+  background: #fff;
+}
+
+.raised {
+  border: 1px solid var(--win-bevel-dark);
+  box-shadow: var(--win-shadow-raised-deep);
+  background: var(--win-gray);
+}
+
+.sunken {
+  border: 1px solid var(--win-bevel-dark);
+  box-shadow: var(--win-shadow-sunken);
+  background: var(--win-gray);
+}
+
+.controlBtn {
+  width: 16px;
+  height: 14px;
+  padding: 0;
+  margin-left: 2px;
+  border: none;
+  box-shadow: var(--win-shadow-raised);
+  background: var(--win-gray);
+  font-family: var(--win-font-content);
+  font-size: 10px;
+  line-height: 1;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--win-text);
+}
+
+.controlBtn:active {
+  box-shadow: var(--win-shadow-sunken);
+}
+
+.controlBtnClose {
+  composes: controlBtn;
+  background: var(--lj-close);
+}
+
+.controlBtnMax {
+  composes: controlBtn;
+  font-size: 8px;
+}

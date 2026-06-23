@@ -1,0 +1,70 @@
+.desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 16px;
+  overflow: hidden;
+  font-family: var(--win-font-body);
+  background: var(--win-outer-gradient);
+}
+
+.monitor {
+  display: flex;
+  flex-direction: column;
+  width: min(1280px, 100%);
+  height: min(800px, calc(100dvh - 32px));
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--lj-zinc-800);
+  border: 2px solid var(--win-bevel-light);
+  box-shadow:
+    0 24px 48px rgba(30, 27, 75, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.monitorInner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.workspace {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--win-desktop-gradient);
+}
+
+.iconGrid {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 80px 80px;
+  column-gap: 16px;
+  row-gap: 20px;
+  align-content: start;
+}
+
+@media (max-width: 640px) {
+  .desktop {
+    padding: 8px;
+  }
+
+  .monitor {
+    width: 100%;
+    height: calc(100dvh - 16px);
+    border-radius: 8px;
+  }
+
+  .iconGrid {
+    top: 12px;
+    left: 12px;
+    column-gap: 8px;
+  }
+}

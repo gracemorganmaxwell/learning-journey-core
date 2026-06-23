@@ -1,0 +1,35 @@
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 80px;
+  padding: 6px 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: default;
+  font-family: var(--win-font-body);
+  color: var(--lj-dark);
+}
+
+.icon:hover,
+.icon:focus-visible {
+  background: var(--win-selection);
+  border-color: transparent;
+  color: #fff;
+  outline: none;
+}
+
+.iconImg {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.label {
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+  max-width: 72px;
+}

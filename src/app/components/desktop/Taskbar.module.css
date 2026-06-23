@@ -1,0 +1,133 @@
+.taskbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  padding: 2px 4px;
+  background: var(--win-taskbar-bg);
+  border-top: 2px solid var(--win-bevel-light);
+  flex-shrink: 0;
+  font-family: var(--win-font-body);
+}
+
+.startWrap {
+  position: relative;
+}
+
+.startBtn {
+  composes: raised from "./win98.module.css";
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  min-width: 72px;
+  padding: 2px 8px;
+  font-family: var(--win-font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.startBtnPressed {
+  composes: sunken from "./win98.module.css";
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  min-width: 72px;
+  padding: 2px 8px;
+  font-family: var(--win-font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.startLogo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.divider {
+  width: 2px;
+  height: 22px;
+  background: var(--win-bevel-shadow);
+  border-right: 1px solid var(--win-bevel-light);
+}
+
+.tasks {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  align-items: center;
+}
+
+.taskBtn {
+  composes: raised from "./win98.module.css";
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  min-width: 24px;
+  max-width: 154px;
+  padding: 1px 6px;
+  font-family: var(--win-font-body);
+  font-size: 11px;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.taskBtnActive {
+  composes: sunken from "./win98.module.css";
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  min-width: 24px;
+  max-width: 154px;
+  padding: 1px 6px;
+  font-family: var(--win-font-body);
+  font-size: 11px;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.taskIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.taskLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--lj-dark);
+}
+
+.tray {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 8px;
+  border-left: 2px solid var(--win-bevel-shadow);
+  font-family: var(--win-font-content);
+  font-size: 11px;
+  flex-shrink: 0;
+  color: var(--lj-dark);
+}
+
+.trayIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.clock {
+  font-variant-numeric: tabular-nums;
+}

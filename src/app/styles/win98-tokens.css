@@ -1,0 +1,125 @@
+/* Learning Journey OS — Pencil design tokens (generate-lj-os-pen.mjs) */
+
+:root {
+  /* Vaporwave palette */
+  --lj-purple: #a855f7;
+  --lj-pink: #ec4899;
+  --lj-blue: #60a5fa;
+  --lj-deep-indigo: #1e1b4b;
+  --lj-deep-purple: #581c87;
+  --lj-light-wash: #faf5ff;
+  --lj-light-pink: #fce7f3;
+  --lj-lavender: #ede9fe;
+  --lj-cream: #fffff0;
+  --lj-dark: #18181b;
+  --lj-muted: #71717a;
+  --lj-close: #e879a9;
+
+  /* Win98 chrome */
+  --win-gray: #d8cce8;
+  --win-face: #e9d5ff;
+  --win-bevel-light: #ffffff;
+  --win-bevel-shadow: #7c6a9a;
+  --win-bevel-dark: #2e1066;
+  --win-title-inactive: #a8a0b8;
+  --win-taskbar-bg: #d8cce8;
+  --win-selection: #a855f7;
+  --win-window-bg: #ffffff;
+  --win-text: #18181b;
+
+  /* Legacy aliases (components reference these) */
+  --win-desktop-bg: var(--lj-light-wash);
+  --win-title-active: var(--lj-deep-purple);
+  --win-button-face: var(--win-gray);
+  --win-button-hover: var(--win-face);
+  --win-button-active: #c4b8d8;
+  --win-button-highlight: var(--win-bevel-light);
+  --win-button-shadow: var(--win-bevel-shadow);
+  --win-border-outer: var(--win-bevel-dark);
+
+  /* Gradients */
+  --win-desktop-gradient: linear-gradient(
+    135deg,
+    var(--lj-light-wash) 0%,
+    var(--lj-light-pink) 50%,
+    var(--lj-lavender) 100%
+  );
+  --win-title-active-gradient: linear-gradient(
+    90deg,
+    var(--lj-deep-purple) 0%,
+    var(--lj-purple) 45%,
+    var(--lj-pink) 75%,
+    var(--lj-blue) 100%
+  );
+  --win-menu-sidebar-gradient: linear-gradient(
+    180deg,
+    var(--lj-deep-purple) 0%,
+    var(--lj-pink) 55%,
+    var(--lj-blue) 100%
+  );
+
+  /* Typography */
+  --win-font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --win-font-body: "Lora", Georgia, "Times New Roman", serif;
+  --win-font-content: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --win-font: var(--win-font-body);
+
+  /* Bevel shadows */
+  --win-shadow-raised: inset 1px 1px 0 var(--win-bevel-light),
+    inset -1px -1px 0 var(--win-bevel-shadow);
+  --win-shadow-raised-deep: inset 1px 1px 0 var(--win-bevel-light),
+    inset -2px -2px 0 var(--win-bevel-dark),
+    inset -1px -1px 0 var(--win-bevel-shadow);
+  --win-shadow-sunken: inset -1px -1px 0 var(--win-bevel-light),
+    inset 1px 1px 0 var(--win-bevel-shadow);
+
+  /* Monitor / screen frame (Pencil screenFrame + monitorShell) */
+  --win-outer-gradient: linear-gradient(
+    180deg,
+    var(--lj-purple) 0%,
+    var(--lj-pink) 45%,
+    var(--lj-deep-indigo) 100%
+  );
+  --lj-zinc-800: #27272a;
+}
+
+/* Win98 scrollbars (reflection-portfolio pattern) */
+.win98Scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: #dfdfdf #c0c0c0;
+}
+
+.win98Scrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.win98Scrollbar::-webkit-scrollbar-track {
+  background: var(--win-gray);
+  border: 1px solid var(--win-gray);
+}
+
+.win98Scrollbar::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+  border: 1px solid var(--win-bevel-dark);
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #888;
+}
+
+.win98Scrollbar::-webkit-scrollbar-button:single-button {
+  background: var(--win-gray);
+  border: 1px solid;
+  border-color: #fff var(--win-bevel-dark) var(--win-bevel-dark) #fff;
+  box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #808080;
+  height: 16px;
+  width: 16px;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}

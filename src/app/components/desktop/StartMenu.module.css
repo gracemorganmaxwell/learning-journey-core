@@ -1,0 +1,83 @@
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+
+.menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  width: 240px;
+  margin-bottom: 2px;
+  padding: 2px 2px 4px 4px;
+  background: var(--win-gray);
+  border: 1px solid var(--win-bevel-dark);
+  box-shadow: var(--win-shadow-raised-deep), 2px 2px 0 rgba(46, 16, 102, 0.35);
+  font-family: var(--win-font-body);
+}
+
+.sidebar {
+  width: 28px;
+  min-height: 280px;
+  background: var(--win-menu-sidebar-gradient);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 8px 4px;
+}
+
+.sidebarLabel {
+  color: #fff;
+  font-family: var(--win-font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+.items {
+  flex: 1;
+  padding: 4px 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 24px;
+  padding: 2px 8px;
+  border: none;
+  background: transparent;
+  font-family: var(--win-font-body);
+  font-size: 11px;
+  text-align: left;
+  cursor: default;
+  color: var(--lj-dark);
+}
+
+.item:hover,
+.item:focus-visible {
+  background: var(--win-selection);
+  color: #fff;
+  outline: none;
+}
+
+.itemIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 2px;
+  margin: 4px 6px;
+  background: var(--win-bevel-shadow);
+  border-bottom: 1px solid var(--win-bevel-light);
+}
