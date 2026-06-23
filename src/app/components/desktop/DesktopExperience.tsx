@@ -5,12 +5,15 @@ import { useState } from "react";
 import type { DesktopPostView } from "@/app/lib/desktop-posts";
 import type { DesktopWindowId } from "@/app/lib/icons";
 
+import type { WeatherSnapshot } from "@/app/lib/weather";
+
 import styles from "./DesktopExperience.module.css";
 import { DesktopWindowLayer } from "./DesktopWindowLayer";
 import { ShutdownConfirmDialog } from "./ShutdownConfirmDialog";
 
 type DesktopExperienceProps = {
   posts: DesktopPostView[];
+  weather: WeatherSnapshot | null;
   initialWindow?: DesktopWindowId;
   initialBlogSlug?: string;
   enableShutdown?: boolean;
@@ -19,6 +22,7 @@ type DesktopExperienceProps = {
 /** C4b+ — full desktop with draggable windows. */
 export function DesktopExperience({
   posts,
+  weather,
   initialWindow,
   initialBlogSlug,
   enableShutdown = true,
@@ -35,6 +39,7 @@ export function DesktopExperience({
         <div className={styles.monitorInner}>
           <DesktopWindowLayer
             posts={posts}
+            weather={weather}
             initialWindow={initialWindow}
             initialBlogSlug={initialBlogSlug}
             onShutDown={

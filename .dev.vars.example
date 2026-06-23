@@ -1,4 +1,7 @@
 COMPOSE_DEV_BYPASS=true
 
+# OpenWeather One Call API 4.0 — Christchurch weather window on /desktop
+# OPENWEATHER_API_KEY=your_key_here
+
 # Optional: restrict to one email (must match Cf-Access-Authenticated-User-Email in prod)
 # COMPOSE_ALLOWED_EMAIL=you@example.com

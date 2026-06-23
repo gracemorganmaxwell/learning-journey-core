@@ -2,8 +2,7 @@ import { listPublishedPosts } from "@/db";
 import { DesktopExperience } from "@/app/components/desktop/DesktopExperience";
 import { formatDate, renderMarkdownToHtml } from "@/app/lib/markdown";
 import type { DesktopPostView } from "@/app/lib/desktop-posts";
-
-import "@/app/styles/win98-tokens.css";
+import { fetchChristchurchCurrent } from "@/app/lib/weather";
 
 async function loadDesktopPosts(): Promise<DesktopPostView[]> {
   const rows = await listPublishedPosts();
@@ -17,7 +16,10 @@ async function loadDesktopPosts(): Promise<DesktopPostView[]> {
 }
 
 export async function DesktopPage() {
-  const posts = await loadDesktopPosts();
+  const [posts, weather] = await Promise.all([
+    loadDesktopPosts(),
+    fetchChristchurchCurrent(),
+  ]);
 
-  return <DesktopExperience posts={posts} enableShutdown={true} />;
+  return <DesktopExperience posts={posts} weather={weather} />;
 }

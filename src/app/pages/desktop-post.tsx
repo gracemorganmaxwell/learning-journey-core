@@ -3,6 +3,8 @@ import { DesktopExperience } from "@/app/components/desktop/DesktopExperience";
 import { formatDate, renderMarkdownToHtml } from "@/app/lib/markdown";
 import type { DesktopPostView } from "@/app/lib/desktop-posts";
 
+import { fetchChristchurchCurrent } from "@/app/lib/weather";
+
 type DesktopPostPageProps = {
   params: { slug: string };
 };
@@ -32,14 +34,17 @@ export async function DesktopPostPage({ params }: DesktopPostPageProps) {
     );
   }
 
-  const posts = await loadDesktopPosts();
+  const [posts, weather] = await Promise.all([
+    loadDesktopPosts(),
+    fetchChristchurchCurrent(),
+  ]);
 
   return (
     <DesktopExperience
       posts={posts}
+      weather={weather}
       initialWindow="blog"
       initialBlogSlug={params.slug}
-      enableShutdown={true}
     />
   );
 }

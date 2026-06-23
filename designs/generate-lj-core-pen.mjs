@@ -16,6 +16,7 @@ const I = {
   mail: "../public/icons/mail.png",
   calendar: "../public/icons/calendar.png",
   textFile: "../public/icons/text_file.png",
+  world: "../public/icons/world.png",
   folderClosed: "../public/icons/folder_closed.png",
   folderOpen: "../public/icons/folder_open.png",
 };
@@ -620,6 +621,7 @@ const shortcuts = [
   ["Blog", I.chrome],
   ["About Me", I.notepad],
   ["Credits.txt", I.textFile],
+  ["Weather", I.world],
 ];
 
 function desktopShortcuts(hoverFirst = false) {
@@ -1431,6 +1433,45 @@ const creditsApp = screenFrame("11 App — Credits.txt (Notepad)", 2960, 1940, [
   }),
 ]);
 
+const weatherApp = screenFrame("12 App — Weather (Info)", 0, 2920, [
+  osWindow({
+    title: "Weather — Info",
+    iconPath: I.world,
+    width: 360,
+    contentHeight: 220,
+    contentChildren: [
+      {
+        type: "frame",
+        id: uid(),
+        name: "Weather Body",
+        layout: "horizontal",
+        width: "fill_container",
+        height: "fill_container",
+        padding: 20,
+        gap: 16,
+        alignItems: "center",
+        fill: C.white,
+        children: [
+          txt("☀", { font: F.content, size: 48 }),
+          {
+            type: "frame",
+            id: uid(),
+            name: "Details",
+            layout: "vertical",
+            gap: 4,
+            children: [
+              txt("Christchurch, New Zealand", { font: F.heading, size: 14, fill: C.deepPurple }),
+              txt("12°C", { font: F.heading, size: 28, fill: C.dark }),
+              txt("Partly cloudy", { font: F.content, size: 12, fill: C.muted }),
+              txt("OpenWeather One Call API", { font: F.content, size: 10, fill: C.muted }),
+            ],
+          },
+        ],
+      },
+    ],
+  }),
+]);
+
 function adminSidebar(active) {
   return {
     type: "frame",
@@ -1673,6 +1714,7 @@ const document = {
     resumeApp,
     contactApp,
     creditsApp,
+    weatherApp,
     adminDash,
     adminPosts,
     adminNewPost,

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef } from "react";
 
 import type { DesktopPostView } from "@/app/lib/desktop-posts";
+import type { WeatherSnapshot } from "@/app/lib/weather";
 import { DESKTOP_SHORTCUTS, WINDOW_META, type DesktopWindowId } from "@/app/lib/icons";
 import { useWindowManager } from "@/app/hooks/useWindowManager";
 
@@ -11,11 +12,13 @@ import { DesktopIcon } from "./DesktopIcon";
 import styles from "./DesktopExperience.module.css";
 import { OsWindow } from "./OsWindow";
 import { NotepadWindowContent } from "./NotepadWindowContent";
+import { WeatherWindowContent } from "./WeatherWindowContent";
 import { PlaceholderWindowContent } from "./PlaceholderWindowContent";
 import { Taskbar, TASKBAR_H } from "./Taskbar";
 
 type DesktopWindowLayerProps = {
   posts: DesktopPostView[];
+  weather: WeatherSnapshot | null;
   initialWindow?: DesktopWindowId;
   initialBlogSlug?: string;
   onShutDown?: () => void;
@@ -25,6 +28,7 @@ type DesktopWindowLayerProps = {
 function renderWindowContent(
   id: DesktopWindowId,
   posts: DesktopPostView[],
+  weather: WeatherSnapshot | null,
   initialBlogSlug?: string,
 ) {
   switch (id) {
@@ -41,11 +45,14 @@ function renderWindowContent(
       );
     case "credits":
       return <NotepadWindowContent filePath="/credits.txt" />;
+    case "weather":
+      return <WeatherWindowContent weather={weather} />;
   }
 }
 
 export function DesktopWindowLayer({
   posts,
+  weather,
   initialWindow,
   initialBlogSlug,
   onShutDown,
@@ -130,6 +137,7 @@ export function DesktopWindowLayer({
               {renderWindowContent(
                 id,
                 posts,
+                weather,
                 id === "blog" ? initialBlogSlug : undefined,
               )}
             </OsWindow>
