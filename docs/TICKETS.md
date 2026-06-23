@@ -416,21 +416,21 @@ Research classic Win98 UX + retro-portfolio patterns; write prioritized roadmap 
 
 ### Scope
 
-- [ ] Create `docs/WIN98-BACKLOG.md` — P0/P1/P2 table with ticket stubs
-- [ ] Sources: classic Windows 95/98 UX, [retro-portfolio](https://github.com/gracemorganmaxwell/retro-portfolio), Pencil artboards in `docs/DESIGN.md`
-- [ ] Include: inactive title bars, 8-direction resize, help tooltips, context menus, Recycle Bin icon, sounds/Easter eggs as P2
+- [x] Create `docs/WIN98-BACKLOG.md` — P0/P1/P2 table with ticket stubs
+- [x] Sources: classic Windows 95/98 UX, [retro-portfolio](https://github.com/gracemorganmaxwell/retro-portfolio), Pencil artboards in `docs/DESIGN.md`
+- [x] Include: inactive title bars, 8-direction resize, help tooltips, context menus, Recycle Bin icon, sounds/Easter eggs as P2
 
 ### Acceptance
 
-- [ ] Doc exists with prioritized feature table
-- [ ] No runtime code changes
+- [x] Doc exists with prioritized feature table
+- [x] No runtime code changes
 
 ### Your commit
 
 ```
 docs: add Win98 authenticity backlog roadmap
 
-Closes #5g
+Closes #10
 ```
 
 ---
