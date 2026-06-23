@@ -8,6 +8,7 @@ declare namespace Cloudflare {
     DB: D1Database;
     COMPOSE_DEV_BYPASS?: string;
     COMPOSE_ALLOWED_EMAIL?: string;
+    OPENWEATHER_API_KEY?: string;
   }
 }
 interface Env extends Cloudflare.Env {}
