@@ -1,0 +1,26 @@
+.notepad {
+  margin: 0;
+  padding: 12px;
+  height: 100%;
+  overflow: auto;
+  background: var(--lj-cream);
+  font-family: var(--win-font-content);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--lj-dark);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.loading,
+.error {
+  margin: 0;
+  padding: 12px;
+  font-family: var(--win-font-body);
+  font-size: 12px;
+  color: var(--lj-muted);
+}
+
+.error {
+  color: #991b1b;
+}

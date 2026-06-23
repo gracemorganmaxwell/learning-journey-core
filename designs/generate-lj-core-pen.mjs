@@ -617,11 +617,8 @@ function screenFrame(name, x, y, children) {
 }
 
 const shortcuts = [
-  ["Projects", I.thisPc],
-  ["About Me", I.notepad],
   ["Blog", I.chrome],
-  ["Resume", I.briefcase],
-  ["Contact", I.mail],
+  ["About Me", I.notepad],
   ["Credits.txt", I.textFile],
 ];
 

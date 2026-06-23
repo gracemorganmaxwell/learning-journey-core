@@ -10,6 +10,7 @@ import { BlogWindowContent } from "./BlogWindowContent";
 import { DesktopIcon } from "./DesktopIcon";
 import styles from "./DesktopExperience.module.css";
 import { OsWindow } from "./OsWindow";
+import { NotepadWindowContent } from "./NotepadWindowContent";
 import { PlaceholderWindowContent } from "./PlaceholderWindowContent";
 import { Taskbar, TASKBAR_H } from "./Taskbar";
 
@@ -38,6 +39,8 @@ function renderWindowContent(
           body="Learning Journey — a reflection portfolio and blog on Cloudflare Workers."
         />
       );
+    case "credits":
+      return <NotepadWindowContent filePath="/credits.txt" />;
   }
 }
 

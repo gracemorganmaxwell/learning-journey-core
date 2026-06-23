@@ -1,10 +1,11 @@
 export const icon = {
   blog: "/icons/chrome.png",
   notepad: "/icons/notepad.png",
+  textFile: "/icons/text_file.png",
   shutdown: "/icons/this_computer.png",
 } as const;
 
-export type DesktopWindowId = "blog" | "about";
+export type DesktopWindowId = "blog" | "about" | "credits";
 
 export type DesktopShortcut = {
   id: string;
@@ -26,6 +27,12 @@ export const DESKTOP_SHORTCUTS: DesktopShortcut[] = [
     iconSrc: icon.notepad,
     opens: "about",
   },
+  {
+    id: "credits",
+    label: "Credits.txt",
+    iconSrc: icon.textFile,
+    opens: "credits",
+  },
 ];
 
 export const WINDOW_META: Record<
@@ -34,4 +41,5 @@ export const WINDOW_META: Record<
 > = {
   blog: { title: "Blog — Browser", iconSrc: icon.blog },
   about: { title: "About Me — Notepad", iconSrc: icon.notepad },
+  credits: { title: "Credits.txt — Notepad", iconSrc: icon.textFile },
 };
